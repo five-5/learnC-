@@ -1,0 +1,3 @@
+0-201-78456-X occurs 4 times
+1-301-78456-X occurs 2 times
+2-201-78456-X occurs 1 times
