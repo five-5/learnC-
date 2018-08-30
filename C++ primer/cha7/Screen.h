@@ -5,6 +5,10 @@
 #include <iostream>
 
 class Screen{
+
+    friend class Window_mgr;
+    friend void Window_mgr::clear(ScreenIndex);
+
 	public:
 		typedef std::string::size_type pos;
 
