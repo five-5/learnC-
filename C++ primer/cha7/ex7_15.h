@@ -5,17 +5,22 @@
 #include <iostream>
 
 class Person{
-    
-    public: 
+
+    public:
 		// constructor
+		Person() = default;
 		Person(const string &Name, const string &Addr):name(Name), addr(Addr){}
+        Person(std::istream &is){ read(is, *this);}
 
 		string const& getName() const{ return name;};
 		string const& getAddr() const{ return addr;};
-		
+
     private:
 		std::string name;
 		std::string addr;
+
+    friend std::istream& read(std::istream &is, Person &person);
+    friend std::ostream& print(std::ostream &os, const Person &person);
 };
 
 // non-member functions
