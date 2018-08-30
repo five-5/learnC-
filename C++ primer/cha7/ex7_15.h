@@ -5,13 +5,17 @@
 #include <iostream>
 
 class Person{
-    // constructor
-    Person(const string &Name, const string &Addr):name(Name), addr(Addr){}
+    
+    public: 
+		// constructor
+		Person(const string &Name, const string &Addr):name(Name), addr(Addr){}
 
-    string const& getName() const{ return name;};
-    string const& getAddr() const{ return addr;};
-    std::string name;
-    std::string addr;
+		string const& getName() const{ return name;};
+		string const& getAddr() const{ return addr;};
+		
+    private:
+		std::string name;
+		std::string addr;
 };
 
 // non-member functions
