@@ -19,7 +19,10 @@ struct Sales_data{
 		// before
 		std::string const& isbn() const{ return bookNo;}
 		Sales_data& combine(const Sales_data&);
-
+	
+	private:
+		inline double avg_price() const;
+	
 	private:
 		std::string bookNo;
 		unsigned units_sold = 0;
@@ -31,6 +34,12 @@ struct Sales_data{
 };
 
 // member function
+inline
+double Sales_data::avg_price() const
+{
+	return units_sold ? revenue / units_sold : 0;
+}
+
 Sales_data& Sales_data::combine(const Sales_data& rhs)
 {
     units_sold += rhs.units_sold;
