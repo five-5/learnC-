@@ -23,6 +23,8 @@ class Screen{
 		Screen &set(char);
 		Screen &set(pos, pos, char);
 
+        pos size() const;
+
 		Screen &display(std::ostream &os) { do_display(os); return *this; }
 		const Screen &display(std::ostream &os) const { do_display(os); return *this; }
 
@@ -62,6 +64,12 @@ char Screen::get(pos r, pos c) const
 {
 	pos row = r * width;
 	return contents[row + c];
+}
+
+Screen::pos
+Screen::size() const
+{
+    return height * width;
 }
 
 #endif
