@@ -12,6 +12,10 @@ public:
     }
     Book(){}
 
+    // delegating constructor
+    Book():Book("", "", "", "", 0.0){}
+    Book(string sname, string sisbn, string swriter):Book(sname, sisbn, swriter, "", 0){}
+
 private:
     string name;
     string isbn;
