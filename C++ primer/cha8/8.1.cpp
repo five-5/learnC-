@@ -16,5 +16,7 @@ istream& func(istream &in)
 
 int main()
 {
+    istream& in = func(cin);
+    cout << in.rdstate() << endl;
     return 0;
 }
