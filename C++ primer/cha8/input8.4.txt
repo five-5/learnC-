@@ -1,0 +1,5 @@
+input8.4.txt
+hello
+The test case.
+haha
+lalal
