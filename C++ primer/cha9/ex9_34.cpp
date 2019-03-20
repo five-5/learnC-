@@ -2,7 +2,7 @@
 // License(Apache License)
 // Author: five-5
 // This is just for cpp primer ex9.34 :
-// test for the function of code page317 @9.34
+// test for the function of code page317 ex9.34
 // 
 // *Result:
 // #case 1. if you have good code style and open the -Wall option, it will warning like this: 
