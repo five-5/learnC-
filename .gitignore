@@ -2,3 +2,8 @@
 *.o
 *.exe
 *.json
+
+
+# vscode
+*.ipch
+*.bin
