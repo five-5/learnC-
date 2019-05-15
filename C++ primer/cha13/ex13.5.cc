@@ -29,6 +29,18 @@ class StrVec {
         return *this;
     }
 
+    StrVec& operator=(StrVec &&rhs) noexcept {
+        if (this != &rhs) {
+            free();
+            elements = rhs.elements;
+            first_free = rhs.first_free;
+            cap = rhs.cap;
+            // 将rhs置于可析构状态
+            rhs.elements = rhs.first_free = rhs.cap = nullptr;
+        }
+        return *this;
+    }
+
     ~StrVec() {
         free();
     }
