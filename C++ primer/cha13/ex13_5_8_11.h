@@ -17,6 +17,12 @@ class HasPtr{
     // copy constructor ex13.5
     HasPtr(const HasPtr& rhs) : ps(new std::string(*rhs.ps)), i(rhs.i){  }
 
+    // move constructor
+    HasPtr(HasPtr &&p) noexcept : ps(p.ps), i(p.i) {
+        p.ps = nullptr;
+        p.i = 0;
+    }
+
     // cpoy assignment
     HasPtr& operator= (const HasPtr& rhs)
     {
@@ -28,6 +34,19 @@ class HasPtr{
             this->i = rhs.i;
         }
         return *this;
+    }
+
+    // copy and swap
+    HasPtr& operator=(HasPtr rhs) {
+        swap(*this, rhs);
+        return *this;
+    }
+
+    // swap
+    inline void swap(HasPtr& lhs, HasPtr& rhs) {
+        using std::swap;
+        swap(lhs.ps, rhs.ps);
+        swap(lhs.i, rhs.i);
     }
 
     // destructor
