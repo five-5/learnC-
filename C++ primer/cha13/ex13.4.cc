@@ -35,12 +35,26 @@ class Message {
         add_to_Folders(message);  // 将本消息添加到指向message的Folder中
     } 
 
+    // move constructor
+    Message(Message &&m) : contents(std::move(m.contents)) {
+        move_Folders(&m);   // 移动folders并更新Folder指针
+    }
+
     Message& operator=(const Message& rhs) {
         // 通过先删除指针再插入来处理自赋值情况
         remove_from_Folders();
         contents = rhs.contents;
         folders = rhs.folders;
         add_to_Folders(rhs);
+        return *this;
+    }
+
+    Message& operator=(Message &&rhs) {
+        if (this != &rhs) {
+            remove_from_Folders();
+            contents = std::move(rhs.contents);
+            move_Folders(&rhs);
+        }
         return *this;
     }
 
@@ -58,6 +72,7 @@ class Message {
         remFlder(&folder);
         folder.remMsg(this);
     }
+
 
     void print_debug() {
         std::cout << contents << std::endl;
@@ -85,6 +100,15 @@ class Message {
 
     void remFlder(Folder *f) {
         folders.erase(f);
+    }
+
+    void move_Folders(Message *m) {
+        folders = std::move(m->folders);   // 使用set的移动赋值运算符
+        for (auto f : folders) {
+            f->remMsg(m);
+            f->addMsg(this);
+        }
+        m->folders.clear();             // 确保销毁m是无害的
     }
 };
 
