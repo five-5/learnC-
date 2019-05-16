@@ -1,3 +1,9 @@
+/*
+ * @Author: five-5
+ * @Date: 2019-05-16
+ * @Description: 
+ * @LastEditTime: 2019-05-16
+ */
 
 #include <vector>
 #include <algorithm>
@@ -29,18 +35,20 @@ Foo Foo::sorted() &&
 //     return ret;                                 // 返回副本
 // }
 
-Foo Foo::sorted() const &
-{
-    std::cout << "const & sort" << std::endl;
-    Foo ret(*this);                             // 拷贝一个副本
-    return ret.sorted();
-}
-
+// ex13_56
 // Foo Foo::sorted() const &
 // {
 //     std::cout << "const & sort" << std::endl;
-//     return Foo(*this).sorted();
+//     Foo ret(*this);                             // 拷贝一个副本
+//     return ret.sorted();
 // }
+
+// ex_57
+Foo Foo::sorted() const &
+{
+    std::cout << "const & sort" << std::endl;
+    return Foo(*this).sorted();
+}
 
 int main()
 {
