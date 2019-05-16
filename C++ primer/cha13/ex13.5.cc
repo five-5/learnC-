@@ -51,6 +51,12 @@ class StrVec {
         alloc.construct(first_free++, s);
     }
 
+    // move version
+    void push_back(std::string &&s) {
+        chk_n_alloc();  // 如果需要的话为StrVec重新分配内存
+        alloc.construct(first_free++, std::move(s));
+    }
+
     size_t size() const {
         return first_free - elements;
     } 
