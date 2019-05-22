@@ -21,8 +21,11 @@ int main()
 {
     Quote basic("book", 10.6);
     Bulk_quote bulk("book", 10.6, 10, 0.3);
+    Limit_quote limit("book", 10.6, 10, 0.3);
+
     print_total(std::cout, basic, 20);
     print_total(std::cout, bulk, 20);
+    print_total(std::cout, limit, 20);
     
     return 0;
 }
