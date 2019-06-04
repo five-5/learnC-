@@ -17,6 +17,10 @@ class Quote{
         return lhs.bookNo != rhs.bookNo && lhs.price != rhs.price;
     }
  public:
+
+    virtual Quote* clone() const & {return new Quote(*this);}
+    virtual Quote* clone() && {return new Quote(std::move(*this));}
+
     Quote() { std::cout << "default constructing Quote" << std::endl; }
     Quote(const std::string &book, double sales_price) :
             bookNo(book), price(sales_price) { std::cout << "Quote: constructor takes 2 para.\n"; }
@@ -92,6 +96,9 @@ protected:
 
 class Bulk_quote : public Disc_quote {
  public:
+    Bulk_quote* clone() const & {return new Bulk_quote(*this);}
+    Bulk_quote* clone() && {return new Bulk_quote(std::move(*this));}
+    
     Bulk_quote() { std::cout << "default constructing Bulk_quote\n"; }
     using Disc_quote::Disc_quote;
 

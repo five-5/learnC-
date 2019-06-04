@@ -1,0 +1,6 @@
+ISBN: 0-201-54848-8 # sold: 1 total due: 50
+ISBN: 0-201-82470-1 # sold: 1 total due: 50
+Total Sale: 100
+ISBN: 0-201-54848-8 # sold: 15 total due: 562.5
+ISBN: 0-201-82470-1 # sold: 15 total due: 750
+Total Sale: 1312.5
