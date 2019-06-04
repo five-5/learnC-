@@ -2,7 +2,7 @@
  * @Author: five-5
  * @Date: 2019-05-22
  * @Description: definetion of quote and bulk_quote
- * @LastEditTime: 2019-05-27
+ * @LastEditTime: 2019-06-04
  */
 
 #ifndef QUOTE_H
@@ -93,8 +93,10 @@ protected:
 class Bulk_quote : public Disc_quote {
  public:
     Bulk_quote() { std::cout << "default constructing Bulk_quote\n"; }
-    Bulk_quote(const std::string &book, double p, std::size_t qty, double disc) :
-        Disc_quote(book, p, qty, disc) { std::cout << "Bulk_quote: constructor takes 4 para.\n"; }
+    using Disc_quote::Disc_quote;
+
+    // Bulk_quote(const std::string &book, double p, std::size_t qty, double disc) :
+    //     Disc_quote(book, p, qty, disc) { std::cout << "Bulk_quote: constructor takes 4 para.\n"; }
 
     // copy constructor
     Bulk_quote(const Bulk_quote& nq) : Disc_quote(bq)
