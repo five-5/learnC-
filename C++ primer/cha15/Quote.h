@@ -99,7 +99,7 @@ class Bulk_quote : public Disc_quote {
     //     Disc_quote(book, p, qty, disc) { std::cout << "Bulk_quote: constructor takes 4 para.\n"; }
 
     // copy constructor
-    Bulk_quote(const Bulk_quote& nq) : Disc_quote(bq)
+    Bulk_quote(const Bulk_quote& bq) : Disc_quote(bq)
     { std::cout << "Bulk_quote: copy constructor\n"; }
 
     // move constructor
