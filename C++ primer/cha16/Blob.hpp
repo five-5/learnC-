@@ -2,7 +2,7 @@
  * @Author: five-5
  * @Date: 2019-06-10
  * @Description: 
- * @LastEditTime: 2019-06-10
+ * @LastEditTime: 2019-06-11
  */
 
 #ifndef BLOB_HPP
@@ -31,9 +31,12 @@ class Blob {
     void pop_back();
     // access element
     T& back();
+    const T& back() const;
     T& front();
     T& operator[](size_type i);
+    const T& operator[](size_type i) const;
     
+
  private:
     std::shared_ptr<std::vector<T>> data;  
     // 若data[i]无效，则抛出msg
@@ -54,6 +57,12 @@ T& Blob<T>::back() {
 }
 
 template <typename T>
+const T& Blob<T>::back() const {
+    check(0, "back on empty Blob");
+    return data->back();
+}
+
+template <typename T>
 T& Blob<T>::front() {
     check(0, "front on empty Blob");
     return data->front();
@@ -61,6 +70,12 @@ T& Blob<T>::front() {
 
 template <typename T>
 T& Blob<T>::operator[] (size_type i) {
+    check(i, "subscript out of range");
+    return (*data)[i];
+}
+
+template <typename T>
+const T& Blob<T>::operator[] (size_type i) const{
     check(i, "subscript out of range");
     return (*data)[i];
 }
